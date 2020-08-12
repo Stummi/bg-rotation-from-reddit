@@ -1,0 +1,18 @@
+#!/bin/bash
+
+# start with your xsesssion. e.g by .xsession line:
+#
+# bin/bgdaemon .images/EarthPorn/rotation &
+#   (Make sure to put it into background)
+
+[[ $1 ]] && cd "$1"
+
+setBg() {
+    files=($(printf "%s\n" *.jpg | sort -R))
+    feh --bg-fill "${files[@]}"
+}
+
+setBg
+while sleep 60; do
+   setBg
+done

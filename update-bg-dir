@@ -1,0 +1,9 @@
+#!/bin/bash -e
+
+# crontab entry:
+# 0 * * * * $HOME/bin/update-bg-dir
+
+cd ~/.images/EarthPorn
+~/bin/getsfwporn
+# clean up old files (forgive me)
+rm -- $(ls -tr *.jpg | head -n -15)
